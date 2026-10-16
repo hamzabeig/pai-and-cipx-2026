@@ -1,0 +1,33 @@
+from ai import call_gpt
+
+def main():
+    #milestone 1
+
+    print("Hello! I am an AI joke bot.")
+
+    answer = input("Do you want to hear a joke? Type yes or no: ")
+
+    gpt_prompt = "Tell me a funny, short joke."
+    joke = call_gpt(gpt_prompt)
+    print(joke)
+    
+
+    #milestone 2 and 3
+    
+    jokes = [joke]
+    
+    answer = input("\nDo you want to hear a joke? Type yes or no: ")
+
+    while answer == "yes":
+        if jokes:
+            gpt_prompt = f"Tell me a funny, short joke. Do not repeat these previous jokes: {jokes}"
+
+        joke = call_gpt(gpt_prompt)
+        print(joke)
+
+        jokes.append(joke)
+
+        answer = input("\nDo you want to hear a joke? Type yes or no: ")
+
+if __name__ == "__main__":
+    main()
